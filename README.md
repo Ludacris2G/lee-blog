@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## My blog website
 
-## Getting Started
+#### A blog application built with Next.js, GraphQL, Tailwind CSS and Sass for creating and sharing blog posts.
 
-First, run the development server:
+## Project Status
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is currently in development.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Screen Shot(s)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Coming soon
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<!-- [ PRETEND SCREEN SHOT IS HERE ]
 
-## Learn More
+[ PRETEND OTHER SCREEN SHOT IS HERE ] -->
 
-To learn more about Next.js, take a look at the following resources:
+## Building and deploying in production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you wanted to run this site in production, you should install modules then build the site with `npm run build` and run it with `npm start`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    npm install
+    npm run build
+    npm start
 
-## Deploy on Vercel
+You should run `npm run build` again any time you make changes to the site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Reflection
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- I'm building this project because I need a place where I can collect my stories.
