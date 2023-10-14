@@ -1,7 +1,8 @@
-import { Inter } from 'next/font/google';
+import Categories from '@/components/Categories';
+import Navbar from '@/components/Navbar';
+import PostCard from '@/components/PostCard';
+import PostWidget from '@/components/PostWidget';
 import Head from 'next/head';
-
-const inter = Inter({ subsets: ['latin'] });
 
 const posts = [
   { title: 'testing', excerpt: 'Learn Next.js' },
@@ -13,21 +14,22 @@ const posts = [
 
 export default function Home() {
   return (
-    <div className='container mx-auto px-10 mb-8 bg-gray-300'>
+    <div className='container mx-auto px-10 mb-8'>
       <Head>
         <title>Lee's blog</title>
       </Head>
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 bg-emerald-700'>
+      <Navbar />
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='col-span-1 lg:col-span-8'>
           {posts.map((post, i) => (
-            <div className='text-center bg-blue-300' key={i}>
-              {post.title}
-              {post.excerpt}
-            </div>
+            <PostCard post={post} key={post.title} />
           ))}
         </div>
-        <div className='col-span-1 lg:col-span-4 bg-emerald-900'>
-          <div className='lg:sticky relative top-8'>hi</div>
+        <div className='col-span-1 lg:col-span-4'>
+          <div className='relative top-8 lg:sticky'>
+            <PostWidget />
+            <Categories />
+          </div>
         </div>
       </div>
     </div>
