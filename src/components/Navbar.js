@@ -1,15 +1,21 @@
-import { useContext } from 'react';
+import { getCategories } from '@/services';
 import Link from 'next/link';
-
-const categories = [
-  { name: 'react', slug: 'react' },
-  { name: 'web dev1', slug: 'web-dev1' },
-  { name: 'web dev2', slug: 'web-dev2' },
-  { name: 'web dev3', slug: 'web-dev3' },
-  { name: 'web dev4', slug: 'web-de4v' },
-];
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    const categories = await getCategories();
+
+    if (categories) {
+      setCategories(categories);
+    }
+  };
   return (
     <div className='bg-zinc-600 container mx-auto px-10 mb-8'>
       <div className='border-b w-full inline-block border-blue-400 py-8'>
@@ -21,15 +27,11 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='hidden md:float-left md:contents'>
-          <div>
-            {categories.map((category) => (
-              <Link key={category.slug} href={`category/${category.slug}`}>
-                <span className='md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer'>
-                  {category.name}
-                </span>
-              </Link>
-            ))}
-          </div>
+          {categories.map((category) => (
+            <Link href={`/category/${category.slug}`} key={category.slug}>
+              <span className='md:float-right mt-2 mr-2'>{category.name}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
