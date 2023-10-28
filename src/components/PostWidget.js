@@ -1,4 +1,4 @@
-import { getRecentPosts } from '@/services';
+import { getRecentPosts, getSimilarPosts } from '@/services';
 import moment from 'moment';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
