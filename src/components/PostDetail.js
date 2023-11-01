@@ -22,7 +22,7 @@ const PostDetail = ({ post }) => {
         return (
           <h3 key={index} className='text-xl font-semibold mb-4'>
             {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
+              <>{item}</>
             ))}
           </h3>
         );
@@ -50,6 +50,24 @@ const PostDetail = ({ post }) => {
               <>{item}</>
             ))}
           </blockquote>
+        );
+      case 'heading-four':
+        return (
+          <h4 key={index} className='text-md font-semibold mb-4 text-2xl'>
+            {modifiedText.map((item, i) => (
+              <>{item}</>
+            ))}
+          </h4>
+        );
+      case 'image':
+        return (
+          <img
+            key={index}
+            alt={obj.title}
+            height={obj.height}
+            width={obj.width}
+            src={obj.src}
+          />
         );
       default:
         return modifiedText;
