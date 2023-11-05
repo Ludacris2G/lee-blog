@@ -1,21 +1,43 @@
+import { submitComment } from '@/services';
 import { useRef, useState } from 'react';
 
-const CommentsForm = () => {
+const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const commentEl = useRef();
   const nameEl = useRef();
   const emailEl = useRef();
-  const storeDataEl = useRef();
 
   const handleCommentSubmission = () => {
     setError(false);
+
+    const { value: comment } = commentEl.current;
+    const { value: name } = nameEl.current;
+    const { value: email } = emailEl.current;
+
+    if (!comment || !name || !email) {
+      setError(true);
+      return;
+    }
+
+    const commentObj = {
+      name,
+      email,
+      comment,
+      slug,
+    };
+
+    submitComment(commentObj).then((res) => setShowSuccessMessage(true));
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000);
   };
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8'>
-      <p className='text-xl mb-8 font-semibold border-b pb-4'>CommentsForm</p>
+      <p className='text-xl mb-8 font-semibold border-b pb-4'>
+        Leave a comment
+      </p>
       <div className='grid grid-cols-1 gap-4 mb-4'>
         <textarea
           ref={commentEl}
