@@ -11,9 +11,11 @@
   "dependencies": {
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
+    "html-react-parser": "^5.0.6",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-multi-carousel": "^2.8.4"
   },
   "devDependencies": {
     "autoprefixer": "latest",
