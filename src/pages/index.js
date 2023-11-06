@@ -1,3 +1,4 @@
+import CarouselSlider from '@/components/Carousel';
 import Categories from '@/components/Categories';
 import PostCard from '@/components/PostCard';
 import PostWidget from '@/components/PostWidget';
@@ -11,6 +12,7 @@ export default function Home({ posts }) {
         <title>Lee's blog</title>
       </Head>
       <div className='background-container'></div>
+      <CarouselSlider />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='col-span-1 lg:col-span-8'>
           {posts.map((post, i) => (
