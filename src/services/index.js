@@ -33,9 +33,11 @@ export const getPosts = async () => {
     }
   `;
 
-  const response = await request(graphqlAPI, query);
+  try {
+    const response = await request(graphqlAPI, query);
 
-  return response.postsConnection.edges;
+    return response.postsConnection.edges;
+  } catch (error) {}
 };
 
 export const getPostDetails = async (slug) => {
@@ -68,9 +70,11 @@ export const getPostDetails = async (slug) => {
     }
   `;
 
-  const response = await request(graphqlAPI, query, { slug });
+  try {
+    const response = await request(graphqlAPI, query, { slug });
 
-  return response.post;
+    return response.post;
+  } catch (error) {}
 };
 
 export const getRecentPosts = async () => {
@@ -89,9 +93,11 @@ export const getRecentPosts = async () => {
         }
     }`;
 
-  const response = await request(graphqlAPI, query);
+  try {
+    const response = await request(graphqlAPI, query);
 
-  return response.posts;
+    return response.posts;
+  } catch (error) {}
 };
 
 export const getSimilarPosts = async (categories, slug) => {
@@ -114,9 +120,11 @@ export const getSimilarPosts = async (categories, slug) => {
     }
   `;
 
-  const response = await request(graphqlAPI, query, { categories, slug });
+  try {
+    const response = await request(graphqlAPI, query, { categories, slug });
 
-  return response.posts;
+    return response.posts;
+  } catch (error) {}
 };
 
 export const getCategories = async () => {
@@ -144,7 +152,9 @@ export const submitComment = async (obj) => {
     body: JSON.stringify(obj),
   });
 
-  return result.json();
+  try {
+    return result.json();
+  } catch (error) {}
 };
 
 export const getComments = async (slug) => {
@@ -164,4 +174,31 @@ export const getComments = async (slug) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetCategoryPost() {
+      posts(where: {featuredPost: true}) {
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        featuredImage {
+          url
+        }
+        title
+        slug
+        createdAt
+      }
+    }   
+  `;
+
+  try {
+    const result = await request(graphqlAPI, query);
+
+    return result.posts;
+  } catch (error) {}
 };
