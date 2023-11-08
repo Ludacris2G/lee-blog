@@ -64,6 +64,7 @@ const CarouselSlider = () => {
         swipeable
       >
         {dataLoaded &&
+          featuredPosts &&
           featuredPosts.map((post, i) => (
             <FeaturedPostCard key={i} post={post} />
           ))}
