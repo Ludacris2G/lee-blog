@@ -141,9 +141,7 @@ export const getCategories = async () => {
     const result = await request(graphqlAPI, query);
 
     return result.categories;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
 
 export const submitComment = async (obj) => {
@@ -200,5 +198,21 @@ export const getFeaturedPosts = async () => {
     const result = await request(graphqlAPI, query);
 
     return result.posts;
+  } catch (error) {}
+};
+
+export const getCategoryPosts = async (slug) => {
+  const query = gql`
+    query GetCategoryPosts($slug: String!) {
+      posts(where: { slug: $slug }) {
+        author
+      }
+    }
+  `;
+
+  try {
+    const response = await request(graphqlAPI, query);
+
+    return response.posts;
   } catch (error) {}
 };
