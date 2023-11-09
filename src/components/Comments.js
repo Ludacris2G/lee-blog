@@ -1,7 +1,7 @@
-import moment from 'moment';
 import { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
 import { getComments } from '@/services';
+import Moment from 'react-moment';
 
 const Comments = ({ slug }) => {
   const [comments, setComments] = useState([]);
@@ -25,7 +25,7 @@ const Comments = ({ slug }) => {
                 <p className='mb-4'>
                   <span className='font-semibold'>{comment.name}</span>
                   {' on '}
-                  {moment(comment.createdAt).format('MMM DD, YYYY')}
+                  {<Moment format='MMM DD, YYYY'>{comment.createdAt}</Moment>}
                 </p>
                 <p className='whitespace-pre-line text-gray-600 w-full'>
                   {parse(comment.comment)}

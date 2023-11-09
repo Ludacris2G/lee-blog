@@ -1,7 +1,7 @@
 import { getRecentPosts, getSimilarPosts } from '@/services';
-import moment from 'moment';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Moment from 'react-moment';
 
 const PostWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
@@ -32,7 +32,7 @@ const PostWidget = ({ categories, slug }) => {
             </div>
             <div className='flex-grow ml-4'>
               <p className='text-gray-500 font-xs'>
-                {moment(post.createdAt).format('MMM DD, YYYY')}
+                {<Moment format='MMM DD, YYYY'>{post.createdAt}</Moment>}
               </p>
               <Link href={`/post/${post.slug}`}>{post.title}</Link>
             </div>

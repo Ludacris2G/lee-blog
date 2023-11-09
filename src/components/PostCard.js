@@ -1,5 +1,5 @@
-import moment from 'moment';
 import Link from 'next/link';
+import Moment from 'react-moment';
 
 const PostCard = ({ post }) => {
   return (
@@ -41,7 +41,7 @@ const PostCard = ({ post }) => {
             />
           </svg>
           <span className='text-center align-middle'>
-            {moment(post.createdAt).format('MMM DD, YYYY')}
+            {<Moment format='MMM DD, YYYY'>{post.createdAt}</Moment>}
           </span>
         </div>
       </div>

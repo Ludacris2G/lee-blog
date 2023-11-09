@@ -1,7 +1,6 @@
 import Categories from '@/components/Categories';
 import Loader from '@/components/Loader';
 import PostCard from '@/components/PostCard';
-import PostWidget from '@/components/PostWidget';
 import { getCategories, getCategoryPosts, getPosts } from '@/services';
 import { useRouter } from 'next/router';
 

@@ -1,4 +1,4 @@
-import { submitComment } from '@/services';
+import { submitComment } from '../services/index.js';
 import { useRef, useState } from 'react';
 
 const CommentsForm = ({ slug }) => {

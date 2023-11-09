@@ -1,5 +1,5 @@
-import moment from 'moment';
 import React from 'react';
+import Moment from 'react-moment';
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -110,7 +110,7 @@ const PostDetail = ({ post }) => {
             />
           </svg>
           <span className='text-center align-middle'>
-            {moment(post.createdAt).format('MMM DD, YYYY')}
+            {<Moment format='MMM DD, YYYY'>{post.createdAt}</Moment>}
           </span>
         </div>
       </div>
