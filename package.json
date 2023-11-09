@@ -12,6 +12,7 @@
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
     "html-react-parser": "^5.0.6",
+    "moment": "^2.29.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
