@@ -36,7 +36,7 @@ const PostDetail = ({ post }) => {
         );
       case 'code-block':
         return (
-          <pre key={index} className='bg-gray-200 p-4'>
+          <pre key={index} className='bg-gray-200 p-4 overflow-y-scroll'>
             <code>{modifiedText}</code>
           </pre>
         );
