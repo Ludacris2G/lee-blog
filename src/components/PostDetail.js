@@ -20,7 +20,7 @@ const PostDetail = ({ post }) => {
     switch (type) {
       case 'heading-three':
         return (
-          <h3 key={index} className='text-xl font-semibold mb-4'>
+          <h3 key={index} className='text-xl font-semibold mb-4 px-2'>
             {modifiedText.map((item, i) => (
               <>{item}</>
             ))}
@@ -28,7 +28,7 @@ const PostDetail = ({ post }) => {
         );
       case 'paragraph':
         return (
-          <p key={index} className='mb-8'>
+          <p key={index} className='mb-8 px-2'>
             {modifiedText.map((item, i) => (
               <>{item}</>
             ))}
@@ -36,7 +36,7 @@ const PostDetail = ({ post }) => {
         );
       case 'code-block':
         return (
-          <pre key={index} className='bg-gray-200 p-4 overflow-y-scroll'>
+          <pre key={index} className='bg-gray-200 p-4 overflow-x-auto'>
             <code>{modifiedText}</code>
           </pre>
         );
@@ -53,7 +53,7 @@ const PostDetail = ({ post }) => {
         );
       case 'heading-four':
         return (
-          <h4 key={index} className='text-md font-semibold mb-4 text-2xl'>
+          <h4 key={index} className='text-md font-semibold mb-4 text-2xl px-2'>
             {modifiedText.map((item, i) => (
               <>{item}</>
             ))}
@@ -75,7 +75,7 @@ const PostDetail = ({ post }) => {
   };
 
   return (
-    <div className='bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
+    <div className='bg-white shadow-lg rounded-lg lg:px-8 lg:py-1 mb-8'>
       <div className='relative overflow-hidden shadow-md mb-6'>
         <img
           src={post.featuredImage.url}
@@ -114,7 +114,7 @@ const PostDetail = ({ post }) => {
           </span>
         </div>
       </div>
-      <h1 className='mb-8 text-3xl font-semibold'>{post.title}</h1>
+      <h1 className='mb-8 mt-6 text-3xl font-semibold px-2'>{post.title}</h1>
       {post?.content.raw.children.map((typeObj, index) => {
         const children = typeObj.children.map((item, itemIndex) =>
           getContentFragment(itemIndex, item.text, item)
