@@ -7,7 +7,7 @@ import Head from 'next/head';
 
 export default function Home({ posts }) {
   return (
-    <div className='container mx-auto px-10 mb-8'>
+    <div className='container mx-auto lg:px-10 px-4 mb-8'>
       <Head>
         <title>Lee's blog</title>
       </Head>
