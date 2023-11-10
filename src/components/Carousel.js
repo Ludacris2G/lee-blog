@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import FeaturedPostCard from './FeaturedPostCard';
 import { getFeaturedPosts } from '@/services';
+import Loader from './Loader';
 
 const CarouselSlider = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
@@ -35,40 +36,44 @@ const CarouselSlider = () => {
   };
   return (
     <div className='mb-10'>
-      <Carousel
-        additionalTransfrom={0}
-        arrows
-        autoPlaySpeed={3000}
-        centerMode={false}
-        className=''
-        containerClass='container-with-dots'
-        dotListClass=''
-        draggable
-        focusOnSelect={false}
-        infinite
-        itemClass=''
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside={false}
-        renderDotsOutside={false}
-        responsive={responsive}
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        shouldResetAutoplay
-        showDots={false}
-        sliderClass=''
-        slidesToSlide={1}
-        swipeable
-      >
-        {dataLoaded &&
-          featuredPosts &&
-          featuredPosts.map((post, i) => (
-            <FeaturedPostCard key={i} post={post} />
-          ))}
-      </Carousel>
+      {dataLoaded && featuredPosts.length > 0 ? (
+        <Carousel
+          additionalTransfrom={0}
+          arrows
+          autoPlaySpeed={3000}
+          centerMode={false}
+          className=''
+          containerClass='container-with-dots'
+          dotListClass=''
+          draggable
+          focusOnSelect={false}
+          infinite
+          itemClass=''
+          keyBoardControl
+          minimumTouchDrag={80}
+          pauseOnHover
+          renderArrowsWhenDisabled={false}
+          renderButtonGroupOutside={false}
+          renderDotsOutside={false}
+          responsive={responsive}
+          rewind={false}
+          rewindWithAnimation={false}
+          rtl={false}
+          shouldResetAutoplay
+          showDots={false}
+          sliderClass=''
+          slidesToSlide={1}
+          swipeable
+        >
+          {dataLoaded &&
+            featuredPosts &&
+            featuredPosts.map((post, i) => (
+              <FeaturedPostCard key={i} post={post} />
+            ))}
+        </Carousel>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
