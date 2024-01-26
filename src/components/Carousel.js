@@ -4,6 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import FeaturedPostCard from './FeaturedPostCard';
 import { getFeaturedPosts } from '@/services';
 import Loader from './Loader';
+import PhotoCredits from './PhotoCredits';
 
 const CarouselSlider = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
@@ -68,7 +69,10 @@ const CarouselSlider = () => {
           {dataLoaded &&
             featuredPosts &&
             featuredPosts.map((post, i) => (
+              <>
+              <PhotoCredits/>
               <FeaturedPostCard key={i} post={post} />
+              </>
             ))}
         </Carousel>
       ) : (
