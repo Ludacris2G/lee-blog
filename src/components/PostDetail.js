@@ -78,7 +78,7 @@ const PostDetail = ({ post }) => {
   return (
     <div className='bg-white shadow-lg rounded-lg lg:px-8 lg:py-1 mb-8'>
       <div className='relative overflow-hidden shadow-md mb-6'>
-        <PhotoCredits/>
+        <PhotoCredits />
         <img
           src={post.featuredImage.url}
           alt={post.title}
@@ -116,13 +116,16 @@ const PostDetail = ({ post }) => {
           </span>
         </div>
       </div>
-      <h1 className='mb-8 mt-6 text-3xl font-semibold px-2'>{post.title}</h1>
-      {post?.content.raw.children.map((typeObj, index) => {
-        const children = typeObj.children.map((item, itemIndex) =>
-          getContentFragment(itemIndex, item.text, item)
-        );
-        return getContentFragment(index, children, typeObj, typeObj.type);
-      })}
+      <div className='px-3 pb-[1px]'>
+        {/* container for padding ignoring img or banner above title */}
+        <h1 className='mb-8 mt-6 text-3xl font-semibold px-2'>{post.title}</h1>
+        {post?.content.raw.children.map((typeObj, index) => {
+          const children = typeObj.children.map((item, itemIndex) =>
+            getContentFragment(itemIndex, item.text, item)
+          );
+          return getContentFragment(index, children, typeObj, typeObj.type);
+        })}
+      </div>
     </div>
   );
 };
