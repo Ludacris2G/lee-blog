@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
+import PhotoCredits from './PhotoCredits';
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -77,6 +78,7 @@ const PostDetail = ({ post }) => {
   return (
     <div className='bg-white shadow-lg rounded-lg lg:px-8 lg:py-1 mb-8'>
       <div className='relative overflow-hidden shadow-md mb-6'>
+        <PhotoCredits/>
         <img
           src={post.featuredImage.url}
           alt={post.title}
