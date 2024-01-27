@@ -16,6 +16,14 @@ const PostDetail = ({ post }) => {
       if (obj.underline) {
         modifiedText = <u key={index}>{text}</u>;
       }
+      if (text === undefined) {
+        modifiedText = (
+          <a className='text-blue-800' href={obj.href}>
+            {obj.children[0].text}
+          </a>
+        );
+        return modifiedText;
+      }
     }
 
     switch (type) {
