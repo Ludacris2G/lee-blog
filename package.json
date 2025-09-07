@@ -25,5 +25,8 @@
     "eslint-config-next": "latest",
     "postcss": "latest",
     "tailwindcss": "latest"
+  },
+  "engines": {
+    "node": ">=22.x"
   }
 }
