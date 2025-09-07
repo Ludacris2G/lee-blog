@@ -4,7 +4,6 @@ import PostCard from '@/components/PostCard';
 import PostWidget from '@/components/PostWidget';
 import { getPosts } from '@/services';
 import Head from 'next/head';
-import bg from '@/assets/bg-3.jpg';
 
 export default function Home({ posts }) {
   return (
@@ -12,10 +11,6 @@ export default function Home({ posts }) {
       <Head>
         <title>Lee's blog</title>
       </Head>
-      <div
-        className='background-container'
-        style={{ backgroundImage: `url(${bg.src})` }}
-      ></div>
       <CarouselSlider />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-4'>
         <div className='col-span-1 lg:col-span-8'>
@@ -36,7 +31,6 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  console.log(bg);
   const posts = (await getPosts()) || [];
 
   return {
