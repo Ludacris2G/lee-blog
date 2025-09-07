@@ -12,7 +12,10 @@ const CarouselSlider = () => {
 
   useEffect(() => {
     getFeaturedPosts().then((result) => {
-      setFeaturedPosts(result);
+      const sorted = result.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      setFeaturedPosts(sorted);
       setDataLoaded(true);
     });
   }, []);
@@ -70,8 +73,8 @@ const CarouselSlider = () => {
             featuredPosts &&
             featuredPosts.map((post, i) => (
               <>
-              <PhotoCredits/>
-              <FeaturedPostCard key={i} post={post} />
+                <PhotoCredits />
+                <FeaturedPostCard key={i} post={post} />
               </>
             ))}
         </Carousel>
