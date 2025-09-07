@@ -7,7 +7,7 @@ import Head from 'next/head';
 
 export default function Home({ posts }) {
 
-  // sort posts newest -> oldest
+  // sort posts newest -> oldestd
   const sortedPosts = posts.sort(
     (a, b) => new Date(b.node.createdAt) - new Date(a.node.createdAt)
   );
