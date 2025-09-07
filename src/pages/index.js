@@ -6,6 +6,12 @@ import { getPosts } from '@/services';
 import Head from 'next/head';
 
 export default function Home({ posts }) {
+
+  // sort posts newest -> oldest
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.node.createdAt) - new Date(a.node.createdAt)
+  );
+
   return (
     <div className='container mx-auto lg:px-10 px-4 mb-8'>
       <Head>
@@ -15,7 +21,7 @@ export default function Home({ posts }) {
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-4'>
         <div className='col-span-1 lg:col-span-8'>
           {posts &&
-            posts.map((post, i) => (
+            sortedPosts.map((post, i) => (
               <PostCard post={post.node} key={post.node.title} />
             ))}
         </div>
